@@ -1,0 +1,28 @@
+html{
+  background-color: #3e403c;
+}
+h1{
+  color: #8aaad5;
+  text-align: center;
+}
+p{
+  text-align: center;
+  background-color: rgb(205, 205, 205);
+}
+
+.text-center{
+  text-align: center;
+}
+
+.square{
+  width: 30%;
+  background-color: green;
+  padding-bottom: 30%;
+  float: left;
+  margin: 1.66%;
+}
+
+#container{
+  margin: 0 auto;
+  max-width: 500px;
+}
