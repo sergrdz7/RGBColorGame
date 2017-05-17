@@ -6,8 +6,9 @@ var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var resetBtn = document.querySelector("#reset");
-var h1 = document.querySelector("h1");
+var h1 = document.querySelectorAll("h1");
 var h2 = document.querySelector("h2");
+var heading = document.querySelector("#headingContainer");
 colorDisplay.textContent = pickedColor;
 var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
@@ -39,6 +40,9 @@ easyBtn.addEventListener("click", function (){
       squares[i].style.display = "none";
     }
   }
+  headingContainer.style.background = "#8aaad5";
+  messageDisplay.textContent = "";
+  messageDisplay.style.color = "#d62000";
 });
 
 hardBtn.addEventListener("click", function (){
@@ -55,6 +59,9 @@ hardBtn.addEventListener("click", function (){
     squares[i].style.background = colors[i];
     squares[i].style.display = "block";
   }
+  headingContainer.style.background = "#8aaad5";
+  messageDisplay.textContent = "";
+  messageDisplay.style.color = "#d62000";
 });
 
 resetBtn.addEventListener("click", function (){
@@ -70,9 +77,10 @@ resetBtn.addEventListener("click", function (){
   }
   //Reset display color to default;
   //document.querySelector(".highlight").style.background = #8aaad5;
-  h1.style.background = "#3e403c";
-  h2.style.background = "#3e403c";
-  messageDisplay.textContent = "Guess the color";
+  headingContainer.style.background = "#8aaad5";
+  messageDisplay.textContent = "";
+  resetBtn.textContent = "New Colors";
+  messageDisplay.style.color = "#d62000";
 });
 
 
@@ -92,20 +100,22 @@ resetBtn.addEventListener("click", function (){
       //Compare color with picked color
       if (clickedColor === pickedColor) {
         //alert("Correct");
-        messageDisplay.textContent = "Correct";
+        messageDisplay.textContent = "Correct!!";
         changeColors(pickedColor);
-        h1.style.background = pickedColor;
-        h2.style.background = pickedColor;
+
         resetBtn.textContent = "Play again?";
         // headingColor.style.background = pickedColor;
+        headingContainer.style.background = pickedColor;
+        // Change color of "correct" message
+        messageDisplay.style.color = pickedColor;
 
-        //Change background of all squares to match.
       } else {
         messageDisplay.textContent = "Incorrect";
         this.style.background = "#3e403c";
       }
     });
   }
+
 //generate random colors function
 function generateRandomColors(num){
   function randomColor(){
